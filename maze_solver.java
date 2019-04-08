@@ -103,10 +103,10 @@ public class maze_solver {
 			previousY = 15 - currentplaceY;
 			currentplaceX--;
 		}
-		if( x == ) {
+		if( x == 1 ) {
 			setthenumber();
 		} else {
-			setthenumberturningback
+			setthenumberturningback();
 		}
 		System.out.println();
 		System.out.println(
