@@ -114,7 +114,7 @@ public class maze_solver {
 		System.out.println("Number: " + matris[15 - currentplaceY][currentplaceX]);
 	}
 
-	public void turnback (int x) {
+	public void turnback () {
 		if (directionofrob.equals("North")) {
 			directionofrob = "South";
 			previousX = currentplaceX;
