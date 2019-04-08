@@ -130,7 +130,7 @@ public class maze_solver {
 				+ currentplaceY);
 	}
 
-	void gostraight() {
+	void gostraight(int x) {
 		if (directionofrob.equals("North")) {
 			previousX = currentplaceX;
 			previousY = 15 - currentplaceY;
@@ -148,38 +148,18 @@ public class maze_solver {
 			previousY = 15 - currentplaceY;
 			currentplaceX--;
 		}
-		setthenumber();
+		if( x == ) {
+			setthenumber();
+		} else {
+			setthenumberturningback
+		}
 		System.out.println();
 		System.out.println(
 				"Move one step\nDirection: " + directionofrob + "\nPlace: " + currentplaceX + ", " + currentplaceY);
 		System.out.println("Number: " + matris[15 - currentplaceY][currentplaceX]);
 	}
 
-	void gostraightturningback() {
-		if (directionofrob.equals("North")) {
-			previousX = currentplaceX;
-			previousY = 15 - currentplaceY;
-			currentplaceY++;
-		} else if (directionofrob.equals("East")) {
-			previousX = currentplaceX;
-			previousY = 15 - currentplaceY;
-			currentplaceX++;
-		} else if (directionofrob.equals("South")) {
-			previousX = currentplaceX;
-			previousY = 15 - currentplaceY;
-			currentplaceY--;
-		} else {
-			previousX = currentplaceX;
-			previousY = 15 - currentplaceY;
-			currentplaceX--;
-		}
-		setthenumberturningback();
-		System.out.println();
-		System.out.println(
-				"Move one step\nDirection: " + directionofrob + "\nPlace: " + currentplaceX + ", " + currentplaceY);
-	}
-
-	public void turnback() {
+	public void turnback (int x) {
 		if (directionofrob.equals("North")) {
 			directionofrob = "South";
 			previousX = currentplaceX;
@@ -428,7 +408,7 @@ public class maze_solver {
 				IsThisFinalFLl = 0;
 				
 					if(frontsidevalue() == 0 || !varmiyokmi) {
-						gostraight();
+						gostraight(1);
 					}
 					else if(varmiyokmi) {
 						turnback();
@@ -457,7 +437,7 @@ public class maze_solver {
 					if (rightsidevalue() > frontsidevalue()) {
 						IsThisFinalFRf = 2;
 						IsThisFinalFRr = 0;
-						gostraight();
+						gostraight(1);
 					} else if (rightsidevalue() < frontsidevalue()) {
 						IsThisFinalFRf = 0;
 						IsThisFinalFRr = 2;
@@ -473,7 +453,7 @@ public class maze_solver {
 						case 1:
 							IsThisFinalFRf = 2;
 							IsThisFinalFRr = 0;
-							gostraight();
+							gostraight(1);
 							break;
 						default:
 							break;
@@ -487,7 +467,7 @@ public class maze_solver {
 					} else if (rightsidevalue() > frontsidevalue()) {
 						IsThisFinalFRf = 2;
 						IsThisFinalFRr = 0;
-						gostraight();
+						gostraight(1);
 					} else if (rightsidevalue() < frontsidevalue()) {
 						IsThisFinalFRf = 0;
 						IsThisFinalFRr = 2;
@@ -503,7 +483,7 @@ public class maze_solver {
 						case 1:
 							IsThisFinalFRf = 2;
 							IsThisFinalFRr = 0;
-							gostraight();
+							gostraight(1);
 							break;
 						default:
 							break;
@@ -513,7 +493,7 @@ public class maze_solver {
 				if (rightsidevalue() > frontsidevalue()) {
 					IsThisFinalFRf = 2;
 					IsThisFinalFRr = 0;
-					gostraight();
+					gostraight(1);
 				} else if (rightsidevalue() < frontsidevalue()) {
 					IsThisFinalFRf = 0;
 					IsThisFinalFRr = 2;
@@ -529,7 +509,7 @@ public class maze_solver {
 					case 1:
 						IsThisFinalFRf = 2;
 						IsThisFinalFRr = 0;
-						gostraight();
+						gostraight(1);
 						break;
 					default:
 						break;
@@ -615,14 +595,14 @@ public class maze_solver {
 					} else if (frontsidevalue() < leftsidevalue()) {
 						IsThisFinalFLf = 2;
 						IsThisFinalFLl = 0;
-						gostraight();
+						gostraight(1);
 					} else if(frontsidevalue() == leftsidevalue()){
 						randomnum = random.nextInt(2);
 						switch (randomnum) {
 						case 0:
 							IsThisFinalFLf = 2;
 							IsThisFinalFLl = 0;
-							gostraight();
+							gostraight(1);
 							break;
 						case 1:
 							IsThisFinalFLf = 0;
@@ -647,14 +627,14 @@ public class maze_solver {
 					} else if (frontsidevalue() < leftsidevalue()) {
 						IsThisFinalFLf = 2;
 						IsThisFinalFLl = 0;
-						gostraight();
+						gostraight(1);
 					} else if(frontsidevalue() == leftsidevalue()){
 						randomnum = random.nextInt(2);
 						switch (randomnum) {
 						case 0:
 							IsThisFinalFLf = 2;
 							IsThisFinalFLl = 0;
-							gostraight();
+							gostraight(1);
 							break;
 						case 1:
 							IsThisFinalFLf = 0;
@@ -694,12 +674,12 @@ public class maze_solver {
 					
 					} else if (frontsidevalue() < rightsidevalue() && frontsidevalue() < leftsidevalue()) {
 					
-					gostraight();
+					gostraight(1);
 					} else if (frontsidevalue() < rightsidevalue() && frontsidevalue() == leftsidevalue()) {
 					randomnum = random.nextInt(2);
 						switch (randomnum) {
 							case 0:
-								gostraight();
+								gostraight(1);
 								break;
 							case 1:
 								turnleft();
@@ -711,7 +691,7 @@ public class maze_solver {
 						randomnum = random.nextInt(2);
 						switch (randomnum) {
 						case 0:
-							gostraight();
+							gostraight(1);
 							break;
 						case 1:
 							turnright();
@@ -741,7 +721,7 @@ public class maze_solver {
 							turnright();
 							break;
 						case 2:
-							gostraight();
+							gostraight(1);
 						default:
 							break;
 						}
@@ -764,12 +744,12 @@ public class maze_solver {
 				
 			} else if (frontsidevalue() < rightsidevalue() && frontsidevalue() < leftsidevalue()) {
 				
-				gostraight();
+				gostraight(1);
 			} else if (frontsidevalue() < rightsidevalue() && frontsidevalue() == leftsidevalue()) {
 				randomnum = random.nextInt(2);
 				switch (randomnum) {
 				case 0:
-					gostraight();
+					gostraight(1);
 					break;
 				case 1:
 					turnleft();
@@ -781,7 +761,7 @@ public class maze_solver {
 				randomnum = random.nextInt(2);
 				switch (randomnum) {
 				case 0:
-					gostraight();
+					gostraight(1);
 					break;
 				case 1:
 					turnright();
@@ -811,7 +791,7 @@ public class maze_solver {
 					turnright();
 					break;
 				case 2:
-					gostraight();
+					gostraight(1);
 				default:
 					break;
 				}
@@ -901,18 +881,18 @@ public class maze_solver {
 			} else if (f == 'C' && r == 'C' && l == 'O') {
 				turnleftturningback();
 			} else if (f == 'O' && r == 'C' && l == 'C') {
-				gostraightturningback();
+				gostraight(2);
 			} else if (f == 'O' && r == 'O' && l == 'C') {
 				if (rightsidevalue() < frontsidevalue()) {
 					turnrightturningback();
 				} else {
-					gostraightturningback();
+					gostraight(2);
 				}
 			} else if (f == 'O' && r == 'C' && l == 'O') {
 				if (leftsidevalue() < frontsidevalue()) {
 					turnleftturningback();
 				} else {
-					gostraight();
+					gostraight(2);
 				}
 			} else if (f == 'C' && l == 'O' && r == 'O') {
 				if (rightsidevalue() < leftsidevalue()) {
@@ -926,7 +906,7 @@ public class maze_solver {
 				} else if (leftsidevalue() < frontsidevalue() && leftsidevalue() < rightsidevalue()) {
 					turnleftturningback();
 				} else if (frontsidevalue() < rightsidevalue() && frontsidevalue() < leftsidevalue()) {
-					gostraightturningback();
+					gostraight(2);
 				}
 			}
 			writethemaze();
